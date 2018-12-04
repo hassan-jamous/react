@@ -1,0 +1,57 @@
+import * as React from 'react';
+import { connect } from 'react-redux';
+import Aux from 'src/components/hocs/Aux';
+import { CounterActionTypes } from 'src/store/actions/counter.actions';
+import ClickerStateLess from 'src/components/presentational/stateless/Clicker/ClickerStateless';
+
+interface ComponentProps {
+    someProps: string;
+}
+
+interface ReduxStateProps {
+    counter: number;
+}
+
+interface DispatchProps {
+    handleDecrement: () => void;
+    handleIncrment: () => void;
+}
+
+type Props = ComponentProps & DispatchProps & ReduxStateProps;
+
+interface ReactState {
+    counter: number;
+}
+
+const initialState: ReactState = { counter: 0 };
+
+class ClickerContainer extends React.Component<Props, ReactState> {
+    constructor(props: any) {
+        super(props);
+        this.state = initialState;
+    }
+
+    public render() {
+        return (
+            <Aux>
+                <ClickerStateLess counter={this.props.counter} onIncrement ={this.props.handleIncrment} onDecrement = {this.props.handleDecrement} />
+            </Aux>
+        );
+    }
+
+}
+
+const mapReduxStateToComponentProps = (state: any): ReduxStateProps => {
+    return {
+        counter: state.counterReducer.counter
+    };
+}
+
+const mapDispatchToComponentProps = (dispatch: React.Dispatch<any>): DispatchProps => {
+    return {
+        handleDecrement: () => dispatch({ type: CounterActionTypes.COUNTER_DECREASE }),
+        handleIncrment: () => dispatch({ type: CounterActionTypes.COUNTER_INCREAS })
+    }
+}
+
+export default connect<ReduxStateProps, DispatchProps, ComponentProps>(mapReduxStateToComponentProps, mapDispatchToComponentProps)(ClickerContainer);
