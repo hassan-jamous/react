@@ -8,18 +8,18 @@ export const enum UserActionTypes {
 
 
 export interface UserTryLoginAction extends Action {
-    type: UserActionTypes.USER_TRY_LOGIN;
+    readonly type: UserActionTypes.USER_TRY_LOGIN;
     userName: string;
     password: string;
   }
   
   export interface UserLoginSuccessAction extends Action {
-    type: UserActionTypes.USER_LOGIN_SUCCESS;
+    readonly type: UserActionTypes.USER_LOGIN_SUCCESS;
     userName: string;
   }
   
   export interface UserLoginErrorAction extends Action {
-    type: UserActionTypes.USER_LOGIN_ERROR;
+    readonly type: UserActionTypes.USER_LOGIN_ERROR;
   }
 
   export type UserAction = UserTryLoginAction | UserLoginSuccessAction | UserLoginErrorAction;

@@ -11,7 +11,7 @@ const reducer: Reducer<CounterState> = (state: CounterState = initialState, acti
             return { ...state, counter: state.counter + 1}
         }
         case CounterActionTypes.COUNTER_DECREASE: {
-            return { ...state, counter: state.counter - 1 }
+            return { ...state, counter: state.counter - action.decreaseValue}
         }
         default: {
             return state

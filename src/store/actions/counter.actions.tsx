@@ -7,12 +7,12 @@ export const enum CounterActionTypes {
 
 
 export interface CounterIncreaseAction extends Action {
-    type: CounterActionTypes.COUNTER_INCREAS;
+    readonly type: CounterActionTypes.COUNTER_INCREAS;
   }
   
   export interface CounterDecreaseAction extends Action {
-    type: CounterActionTypes.COUNTER_DECREASE;
+    readonly type: CounterActionTypes.COUNTER_DECREASE;
+    decreaseValue: number;
   }
   
-
   export type CounterAction = CounterIncreaseAction | CounterDecreaseAction;

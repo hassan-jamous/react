@@ -14,7 +14,6 @@ interface Props {
     onClickHandler: (userName: string, password: string) => void;
 }
 
-
 class Login extends React.Component<Props, State> {
     private readonly identifiers = LoginElements;
 
@@ -32,7 +31,9 @@ class Login extends React.Component<Props, State> {
                     <label><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name={this.identifiers.password} onChange={this.inputTextChangeHandler} />
                     {this.rednerErrorMessage()}
-                    <button onClick={this.loginButtonClickHandler}>Login</button>
+                    <button onClick={() => {
+                        this.props.onClickHandler(this.state.userName, this.state.password);
+                    }}>Login</button>
                 </div>
             </Aux>
         );
@@ -52,10 +53,6 @@ class Login extends React.Component<Props, State> {
         } else {
             this.setState({ ...this.state, password: event.target.value });
         }
-    }
-
-    private loginButtonClickHandler = () => {
-        this.props.onClickHandler(this.state.userName, this.state.password);
     }
 }
 
