@@ -13,7 +13,9 @@ const rootReducer = combineReducers({
   userReducer
 });
 
-const store = createStore(rootReducer);
+/* tslint:disable:no-string-literal*/
+const store = createStore(rootReducer, window['__REDUX_DEVTOOLS_EXTENSION__'] && window['__REDUX_DEVTOOLS_EXTENSION__']());
+/* eslint-enable */
 
 ReactDOM.render(
   <Provider store={store}><App /></Provider>,
