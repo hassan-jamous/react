@@ -3,12 +3,15 @@ import Login from 'src/components/presentational/stateful/Login/Login';
 import { UserAction, UserActionTypes } from 'src/store/actions/user.actions';
 import { connect } from 'react-redux';
 
-
 interface DispatchProps {
   handleLogin: (userName: string, password: string) => void;
 }
 
-type Props = DispatchProps;
+interface ReduxStateProps {
+  isLoginError: boolean;
+}
+
+type Props = DispatchProps & ReduxStateProps;
 
 class LoginContainer extends React.Component<Props, {}> {
   constructor(props: any) {
@@ -17,10 +20,16 @@ class LoginContainer extends React.Component<Props, {}> {
   public render() {
     return (
       <div>
-        <Login onClickHandler={this.props.handleLogin} />
+        <Login onClickHandler={this.props.handleLogin} loginError={this.props.isLoginError}/>
       </div >
     );
   }
+}
+
+const mapReduxStateToComponentProps = (state: any): ReduxStateProps => {
+  return {
+      isLoginError: state.userReducer.isLogInError
+  };
 }
 
 const mapDispatchToComponentProps = (dispatch: React.Dispatch<UserAction>): DispatchProps => {
@@ -29,4 +38,4 @@ const mapDispatchToComponentProps = (dispatch: React.Dispatch<UserAction>): Disp
   }
 }
 
-export default connect<DispatchProps>(null, mapDispatchToComponentProps)(LoginContainer);
+export default connect<ReduxStateProps, DispatchProps>(mapReduxStateToComponentProps, mapDispatchToComponentProps)(LoginContainer);

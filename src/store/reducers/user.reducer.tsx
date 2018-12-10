@@ -3,6 +3,7 @@ import { Reducer } from 'redux'
 import { UserAction, UserActionTypes } from '../actions/user.actions';
 const initialState: UserState = {
     isLoading: false,
+    isLogInError: false,
     isLoggedIn: false,
     userName: ''
 };
@@ -16,7 +17,7 @@ const reducer: Reducer<UserState> = (state: UserState = initialState, action: Us
             return { ...state, isLoading: false, isLoggedIn: true, userName: action.userName }
         }
         case UserActionTypes.USER_LOGIN_ERROR: {
-            return { ...state, isLoading: false, isLoggedIn: false, userName: '' }
+            return { ...state, isLoading: false, isLogInError: true, isLoggedIn: false, userName: '' }
         }
         default: {
             return state

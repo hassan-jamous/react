@@ -7,6 +7,7 @@ export interface AppState {
 export interface UserState {
     isLoading: boolean;
     isLoggedIn: boolean;
+    isLogInError: boolean;
     userName: string;
 }
 

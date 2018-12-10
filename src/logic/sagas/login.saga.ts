@@ -10,7 +10,7 @@ export function* loginSaga() {
 function* loginService(action: UserTryLoginAction) {
   const loginRequest: LoginRequest = mapActionToDomain(action);
   yield call(tryLogin, loginRequest);
-  yield put({ type: UserActionTypes.USER_LOGIN_SUCCESS, userName: action.userName });
+  yield put({ type: UserActionTypes.USER_LOGIN_ERROR });
 }
 
 function mapActionToDomain(action: UserTryLoginAction): LoginRequest {

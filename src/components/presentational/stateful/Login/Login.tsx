@@ -5,19 +5,19 @@ import { LoginElements } from './LoginElements';
 interface State {
     userName: string;
     password: string;
-    loginError: boolean;
 }
 
-const initialState: State = { userName: "", password: "", loginError: false };
+const initialState: State = { userName: "", password: "" };
 
 interface Props {
     onClickHandler: (userName: string, password: string) => void;
+    loginError: boolean;
 }
 
 class Login extends React.Component<Props, State> {
     private readonly identifiers = LoginElements;
 
-    constructor(props: any) {
+    constructor(props: Props) {
         super(props);
         this.state = initialState;
     }
@@ -41,7 +41,7 @@ class Login extends React.Component<Props, State> {
 
     private rednerErrorMessage() {
         let errorElement = null;
-        if (this.state.loginError === true) {
+        if (this.props.loginError === true) {
             errorElement = (<div> Error </div>);
         }
         return errorElement;

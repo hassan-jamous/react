@@ -19,16 +19,9 @@ interface DispatchProps {
 
 type Props = ComponentProps & DispatchProps & ReduxStateProps;
 
-interface ReactState {
-    counter: number;
-}
-
-const initialState: ReactState = { counter: 0 };
-
-class ClickerContainer extends React.Component<Props, ReactState> {
+class ClickerContainer extends React.Component<Props, {}> {
     constructor(props: any) {
         super(props);
-        this.state = initialState;
     }
 
     public render() {
