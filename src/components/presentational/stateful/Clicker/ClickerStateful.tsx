@@ -7,8 +7,8 @@ interface State {
 
 const initialState: State = { counter: 0 };
 
-class ClickerStateful extends React.Component<object, State> {
-    constructor(props: any) {
+class ClickerStateful extends React.Component<{}, State> {
+    constructor(props: {}) {
         super(props);
         this.state = initialState;
     }
