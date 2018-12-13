@@ -4,7 +4,7 @@ exports.config = {
         browserName: 'chrome'
     },
     cucumberOpts: {
-        require: ['../steps/*.js', '../hooks/*.js'],
+        require: ['../steps/*.ts', '../hooks/*.ts'],
         strict: true,
     },
     directConnect: true,
@@ -15,6 +15,9 @@ exports.config = {
     frameworkPath: require.resolve('protractor-cucumber-framework'),
 
     onPrepare() {
+        require('ts-node').register({
+            project: 'protractor_test/tsconfig.e2e.json'
+        });
         browser.ignoreSynchronization = true;
     }
 };
