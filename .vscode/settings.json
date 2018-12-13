@@ -1,0 +1,11 @@
+{
+    "cucumberautocomplete.steps": ["protractor_test/steps/*.ts"],
+    "cucumberautocomplete.syncfeatures": "protractor_test/features/*.feature",
+    "cucumberautocomplete.strictGherkinCompletion": true,
+  
+    "editor.quickSuggestions": {
+      "comments": false,
+      "strings": true,
+      "other": true
+    }
+  }

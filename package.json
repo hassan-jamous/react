@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/cucumber": "^4.0.4",
     "@types/react-redux": "^6.0.10",
     "@types/react-router-dom": "^4.3.1",
     "axios": "^0.18.0",
@@ -20,14 +21,14 @@
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
-    "e2eLocal": "node_modules/.bin/protractor protractor_test/config/protractor.conf.js"
-
+    "e2eLocal": "node_modules/.bin/protractor protractor_test/configs/protractor.conf.js"
   },
   "devDependencies": {
     "@types/jest": "^23.3.9",
     "@types/node": "^10.12.10",
     "@types/react": "^16.7.7",
     "@types/react-dom": "^16.0.10",
+    "chai": "^4.2.0",
     "concurrently": "^4.1.0",
     "cucumber": "^5.0.3",
     "protractor": "^5.4.1",
