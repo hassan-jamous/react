@@ -1,6 +1,6 @@
 import { takeLatest, call, put } from "redux-saga/effects";
 import { UserActionTypes, UserTryLoginAction } from 'src/store/actions/user.actions';
-import { tryLogin } from '../components/login.component';
+import { tryLogin } from '../functions/login.function';
 import { LoginRequest } from '../domains/loginRequest.domain';
 
 export function* loginSaga() {

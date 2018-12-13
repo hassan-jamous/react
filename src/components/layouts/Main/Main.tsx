@@ -1,9 +1,13 @@
 import * as React from 'react';
 
-const MainLayout: React.FunctionComponent = (props) => (
+interface Props {
+    mainComponent: JSX.Element;
+}
+
+const MainLayout: React.FunctionComponent<Props> = (props) => (
     <div>
-        <h1>Main</h1>
-        {props.children}
+        <h1>Main Layout</h1>
+        {props.mainComponent}
     </div>
 );
 export default MainLayout;
