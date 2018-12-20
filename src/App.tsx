@@ -3,8 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import AnotherLayout from './components/layouts/Another/Another';
 import MainLayout from './components/layouts/Main/Main';
 import ClickerContainer from './components/containers/Clicker/ClickerContainer';
-import ClickerStateful from './components/presentational/stateful/Clicker/ClickerStateful';
 import LoginConteainer from './components/containers/Login/LoginConteainer';
+import ClickerStateful from './components/presentational/Clicker_Stateful/ClickerStateful';
 
 class App extends React.Component {
   public render() {
