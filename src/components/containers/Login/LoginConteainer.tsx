@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { UserAction, UserActionTypes } from 'src/store/actions/user.actions';
+import { UserAction, createUserTryLoginAction } from 'src/store/actions/user.actions';
 import { connect } from 'react-redux';
 import Login from 'src/components/presentational/Login_Stateful/Login';
 
@@ -34,7 +34,7 @@ const mapReduxStateToComponentProps = (state: any): ReduxStateProps => {
 
 const mapDispatchToComponentProps = (dispatch: React.Dispatch<UserAction>): DispatchProps => {
   return {
-    handleLogin: (uName: string, pass: string) => dispatch({ type: UserActionTypes.USER_TRY_LOGIN, userName: uName, password: pass}),
+    handleLogin: (uName: string, pass: string) => dispatch(createUserTryLoginAction(uName, pass)),
   }
 }
 

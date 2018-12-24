@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import Aux from 'src/components/hocs/Aux';
-import { CounterActionTypes, CounterAction } from 'src/store/actions/counter.actions';
+import { CounterAction, createCounterDecreaseAction, createCounterIncreaseAction } from 'src/store/actions/counter.actions';
 import ClickerStateLess from 'src/components/presentational/Clicker_Stateless/ClickerStateless';
 
 interface ComponentProps {
@@ -42,8 +42,8 @@ const mapReduxStateToComponentProps = (state: any): ReduxStateProps => {
 
 const mapDispatchToComponentProps = (dispatch: React.Dispatch<CounterAction>): DispatchProps => {
     return {
-        handleDecrement: () => dispatch({ type: CounterActionTypes.COUNTER_DECREASE, decreaseValue: 5}),
-        handleIncrment: () => dispatch({ type: CounterActionTypes.COUNTER_INCREAS })
+        handleDecrement: () => dispatch(createCounterDecreaseAction(5)),
+        handleIncrment: () => dispatch(createCounterIncreaseAction())
     }
 }
 
