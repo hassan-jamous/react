@@ -8,12 +8,17 @@ import { userReducer } from './store/reducers/user.reducer';
 import { Provider } from 'react-redux';
 import { counterReducer } from './store/reducers/counter.reducer';
 import createSagaMiddleware from "redux-saga";
-import { loginSaga } from './logic/sagas/login.saga';
+import { createBrowserHistory } from 'history';
+import { connectRouter, routerMiddleware } from 'connected-react-router'
+import rootSaga from './logic/sagas/root.saga';
+
+export const history = createBrowserHistory()
 
 const sagaMiddleware = createSagaMiddleware();
 
 const rootReducer = combineReducers({
   counterReducer,
+  router: connectRouter(history),
   userReducer
 });
 
@@ -22,12 +27,12 @@ const reduxDevTools =
   window['__REDUX_DEVTOOLS_EXTENSION__'] && window['__REDUX_DEVTOOLS_EXTENSION__']();
 /* eslint-enable */
 
-const store = window['__REDUX_DEVTOOLS_EXTENSION__']  ? createStore(rootReducer,
-  compose(applyMiddleware(sagaMiddleware), reduxDevTools)
+const store = window['__REDUX_DEVTOOLS_EXTENSION__'] ? createStore(rootReducer,
+  compose(applyMiddleware(sagaMiddleware, routerMiddleware(history)), reduxDevTools)
 ) : createStore(rootReducer,
-  compose(applyMiddleware(sagaMiddleware)));
+  compose(applyMiddleware(sagaMiddleware, routerMiddleware(history))));
 
-sagaMiddleware.run(loginSaga);
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}><App /></Provider>,

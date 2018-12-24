@@ -1,15 +1,17 @@
 import * as React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import AnotherLayout from './components/layouts/Another/Another';
 import MainLayout from './components/layouts/Main/Main';
 import ClickerContainer from './components/containers/Clicker/ClickerContainer';
 import LoginConteainer from './components/containers/Login/LoginConteainer';
 import ClickerStateful from './components/presentational/Clicker_Stateful/ClickerStateful';
+import { ConnectedRouter } from 'connected-react-router';
+import { history } from 'src';
 
 class App extends React.Component {
   public render() {
     return (
-      <BrowserRouter>
+      <ConnectedRouter history={history}>
         <Switch>
           <Route path="/" exact={true} render={() => {
             const login = <LoginConteainer />
@@ -21,7 +23,7 @@ class App extends React.Component {
             return <AnotherLayout mainComponent={mc} anotherComponent={ac} />
           }} />
         </Switch>
-      </BrowserRouter>
+      </ConnectedRouter>
     );
   }
 }
