@@ -1,5 +1,5 @@
 
-import { BeforeAll } from 'cucumber';
+import { BeforeAll, setDefaultTimeout } from 'cucumber';
 import { browser } from 'protractor';
 
 BeforeAll(() => {
@@ -7,4 +7,5 @@ BeforeAll(() => {
     .manage()
     .window()
     .maximize();
+    setDefaultTimeout(250000);
 });

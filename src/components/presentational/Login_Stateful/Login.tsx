@@ -27,7 +27,7 @@ class Login extends React.Component<Props, State> {
             <Aux>
                 <div>
                     <label>Username</label>
-                    <input type="text" placeholder="Enter Username" name={this.identifiers.userName} onChange={this.inputTextChangeHandler} />
+                    <input type="text" placeholder="Enter Username" id={this.identifiers.userName}  name={this.identifiers.userName} onChange={this.inputTextChangeHandler} />
                     <label><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name={this.identifiers.password} onChange={this.inputTextChangeHandler} />
                     {this.rednerErrorMessage()}

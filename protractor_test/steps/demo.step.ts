@@ -1,9 +1,17 @@
-import { When, Then } from 'cucumber';
+import { Before, When, Then } from 'cucumber';
 import { browser } from 'protractor';
 import { expect } from 'chai';
+import { LoginPage } from '../pages/login.page';
+
+let loginPage: LoginPage;
+
+Before(() => {
+    loginPage = new LoginPage();
+  });
 
 When('User does something', async () => {
-    await browser.get('http://localhost:3000');
+    await loginPage.navigateToLoginPage();
+    await loginPage.setUserName("userName");
 });
 
 Then('Something should happen', async () => {
