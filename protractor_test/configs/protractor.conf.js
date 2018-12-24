@@ -4,8 +4,10 @@ exports.config = {
         browserName: 'chrome'
     },
     cucumberOpts: {
+        format: ['progress'],
         require: ['../steps/*.ts', '../hooks/*.ts'],
         strict: true,
+        tags: '@stubbed'
     },
     directConnect: true,
 
