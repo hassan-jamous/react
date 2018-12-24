@@ -22,7 +22,7 @@
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
-    "e2eLocal": "concurrently -k -s first 'yarn start' 'wait-on http://localhost:3000 && node_modules/.bin/protractor protractor_test/configs/protractor.conf.js'"
+    "e2eTest": "concurrently -k -s first 'yarn start' 'wait-on http://localhost:3000 && node_modules/.bin/protractor protractor_test/configs/protractor.conf.js'"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
