@@ -7,7 +7,7 @@ exports.config = {
         format: ['progress'],
         require: ['../steps/*.ts', '../hooks/*.ts'],
         strict: true,
-        tags: '@stubbed'
+        tags: '@integrationTest'
     },
     directConnect: true,
 

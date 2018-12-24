@@ -1,6 +1,7 @@
 Feature: Demo
 
-  @stubbed
+  @stubTest
+  @integrationTest
   Scenario: Demo Scenario
     When User does something
     Then Something should happen
