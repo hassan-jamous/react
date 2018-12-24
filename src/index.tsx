@@ -22,7 +22,7 @@ const reduxDevTools =
   window['__REDUX_DEVTOOLS_EXTENSION__'] && window['__REDUX_DEVTOOLS_EXTENSION__']();
 /* eslint-enable */
 
-const store = isReduxDevToolInstalledInTheBrowser() ? createStore(rootReducer,
+const store = window['__REDUX_DEVTOOLS_EXTENSION__']  ? createStore(rootReducer,
   compose(applyMiddleware(sagaMiddleware), reduxDevTools)
 ) : createStore(rootReducer,
   compose(applyMiddleware(sagaMiddleware)));
@@ -34,7 +34,3 @@ ReactDOM.render(
   document.getElementById('root') as HTMLElement
 );
 registerServiceWorker();
-
-function isReduxDevToolInstalledInTheBrowser(): boolean {
-  return window['__REDUX_DEVTOOLS_EXTENSION__'] ? true : false;
-}
