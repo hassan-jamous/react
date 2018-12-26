@@ -1,0 +1,16 @@
+- request:
+    url: ^/example1$
+    method: GET
+  response:
+    status: 200
+    headers:
+      content-type: application/json
+    file: example1/example1.json
+- request:
+    url: ^/example2/12345$
+    method: GET
+  response:
+    status: 200
+    headers:
+      content-type: application/json
+    file: example2/example2.json

@@ -18,11 +18,13 @@
     "redux-saga": "^0.16.2"
   },
   "scripts": {
+
     "start": "react-scripts-ts start",
+    "startWithStubby": "gulp concat-stubby && concurrently -k -s first 'stubby -d stubby/stubby.yaml --quiet' 'react-scripts-ts start'",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
-    "e2eTestStub": "concurrently -k -s first 'yarn start' 'wait-on http://localhost:3000 && node_modules/.bin/protractor protractor_test/configs/protractor-stub.conf.js'",
+    "e2eTestStub": "gulp concat-stubby && concurrently -k -s first 'stubby -d stubby/stubby.yaml' 'yarn start' 'wait-on http://localhost:3000 && node_modules/.bin/protractor protractor_test/configs/protractor-stub.conf.js'",
     "e2eTestIntegration": "concurrently -k -s first 'yarn start' 'wait-on http://localhost:3000 && node_modules/.bin/protractor protractor_test/configs/protractor-integration.conf.js'"
   },
   "devDependencies": {
@@ -33,8 +35,12 @@
     "chai": "^4.2.0",
     "concurrently": "^4.1.0",
     "cucumber": "^5.0.3",
+    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-watch": "^5.0.1",
     "protractor": "^5.4.1",
     "protractor-cucumber-framework": "^6.1.1",
+    "stubby": "^4.0.0",
     "ts-node": "^7.0.1",
     "typescript": "^3.1.6",
     "wait-on": "^3.2.0"
