@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import Aux from 'src/components/hocs/Aux';
-import { CounterAction, createCounterDecreaseAction, createCounterIncreaseAction } from 'src/store/actions/counter.actions';
-import ClickerStateLess from 'src/components/presentational/Clicker_Stateless/ClickerStateless';
+import Aux from 'components/hocs/Aux';
+import { CounterAction, createCounterDecreaseAction, createCounterIncreaseAction } from 'store/actions/counter.actions';
+import ClickerStateLess from 'components/presentational/Clicker_Stateless/ClickerStateless';
 
 interface ComponentProps {
     someProps: string;

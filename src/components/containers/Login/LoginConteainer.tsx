@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { UserAction, createUserTryLoginAction } from 'src/store/actions/user.actions';
+import { UserAction, createUserTryLoginAction } from 'store/actions/user.actions';
 import { connect } from 'react-redux';
-import Login from 'src/components/presentational/Login_Stateful/Login';
+import Login from 'components/presentational/Login_Stateful/Login';
 
 interface DispatchProps {
   handleLogin: (userName: string, password: string) => void;

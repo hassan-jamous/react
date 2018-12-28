@@ -1,4 +1,4 @@
-import { LoginRequest } from '../domains/loginRequest.domain';
+import { LoginRequest } from 'logic/domains/loginRequest.domain';
 
 export function tryLogin(loginRequest: LoginRequest): boolean {
   alert(loginRequest.uName + "   " + loginRequest.pWord);

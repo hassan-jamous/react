@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { ConnectedRouter } from 'connected-react-router';
 import { Switch, Route } from 'react-router';
-import LoginConteainer from 'src/components/containers/Login/LoginConteainer';
-import MainLayout from 'src/components/layouts/Main/Main';
-import ClickerContainer from 'src/components/containers/Clicker/ClickerContainer';
+import ClickerContainer from 'components/containers/Clicker/ClickerContainer';
 import ClickerStateful from '../Clicker_Stateful/ClickerStateful';
-import AnotherLayout from 'src/components/layouts/Another/Another';
+import AnotherLayout from 'components/layouts/Another/Another';
 import { History } from 'history';
+import LoginConteainer from 'components/containers/Login/LoginConteainer';
+import MainLayout from 'components/layouts/Main/Main';
 
 interface Props {
   history: History;

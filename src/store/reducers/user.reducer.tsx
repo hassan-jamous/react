@@ -1,6 +1,6 @@
-import { UserState } from '../App.state';
 import { Reducer } from 'redux'
 import { UserAction, UserActionTypes } from '../actions/user.actions';
+import { UserState } from 'store/App.state';
 const initialState: UserState = {
     isLoading: false,
     isLogInError: false,

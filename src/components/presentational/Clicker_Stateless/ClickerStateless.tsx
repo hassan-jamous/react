@@ -1,7 +1,7 @@
 
 
 import * as React from 'react';
-import Aux from 'src/components/hocs/Aux';
+import Aux from 'components/hocs/Aux';
 
 interface Props {
     counter: number;
