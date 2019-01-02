@@ -8,6 +8,7 @@
     "@types/react-redux": "^6.0.11",
     "@types/react-router-dom": "^4.3.1",
     "connected-react-router": "^6.0.0",
+    "env-cmd": "^8.0.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
@@ -23,7 +24,7 @@
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
-    "e2eTestStub": "gulp concat-stubby && concurrently -k -s first 'stubby -d stubby/stubby.yaml' 'yarn start' 'wait-on http://localhost:3000 && node_modules/.bin/protractor protractor_test/configs/protractor-stub.conf.js'",
+    "e2eTestStub": "gulp concat-stubby && concurrently -k -s first 'stubby -d stubby/stubby.yaml' 'env-cmd .env.protractor.stub yarn start' 'wait-on http://localhost:3000 && node_modules/.bin/protractor protractor_test/configs/protractor-stub.conf.js'",
     "e2eTestIntegration": "concurrently -k -s first 'yarn start' 'wait-on http://localhost:3000 && node_modules/.bin/protractor protractor_test/configs/protractor-integration.conf.js'"
   },
   "devDependencies": {
