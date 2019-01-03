@@ -1,8 +1,8 @@
 import { takeLatest, call, put } from "redux-saga/effects";
-import { UserActionTypes, UserTryLoginAction } from 'store/actions/user.actions';
-import { LoginRequest } from 'logic/domains/loginRequest.domain';
-import { mapActionToDomain } from 'logic/functions/domain-mapper.function';
-import { tryLogin } from 'logic/functions/login.function';
+import { UserActionTypes, UserTryLoginAction } from '../../store/actions/user.actions';
+import { LoginRequest } from '../../logic/domains/loginRequest.domain';
+import { mapActionToDomain } from '../../logic/functions/domain-mapper.function';
+import { tryLogin } from '../../logic/functions/login.function';
 
 export function* loginSaga() {
   yield takeLatest(UserActionTypes.USER_TRY_LOGIN, loginService);

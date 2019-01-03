@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Routing from 'components/presentational/Routing/Routing';
-import { history } from 'index';
+import { history } from '.';
+import Routing from './components/presentational/Routing/Routing';
 
 class App extends React.Component {
   public render() {

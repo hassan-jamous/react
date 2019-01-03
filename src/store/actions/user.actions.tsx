@@ -1,6 +1,6 @@
 import { Action } from 'redux';
 
-export const enum UserActionTypes {
+export enum UserActionTypes {
   USER_TRY_LOGIN = '@@user/TRY_LOGIN',
   USER_LOGIN_SUCCESS = '@@user/LOGIN_SUCCESS',
   USER_LOGIN_ERROR = '@@user/LOGIN_ERROR'

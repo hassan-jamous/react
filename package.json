@@ -14,16 +14,16 @@
     "react-redux": "^6.0.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts-ts": "^3.1.0",
+    "react-scripts": "^2.1.2",
     "redux": "^4.0.1",
     "redux-saga": "^0.16.2"
   },
   "scripts": {
-    "start": "react-scripts-ts start",
-    "startWithStubby": "gulp concat-stubby && concurrently -k -s first 'stubby -d stubby/stubby.yaml --quiet' 'react-scripts-ts start'",
-    "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject",
+    "start": "react-scripts start",
+    "startWithStubby": "gulp concat-stubby && concurrently -k -s first 'stubby -d stubby/stubby.yaml --quiet' 'react-scripts start'",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
     "e2eTestStub": "gulp concat-stubby && concurrently -k -s first 'stubby -d stubby/stubby.yaml' 'env-cmd .env.protractor.stub yarn start' 'wait-on http://localhost:3000 && node_modules/.bin/protractor protractor_test/configs/protractor-stub.conf.js'",
     "e2eTestIntegration": "concurrently -k -s first 'yarn start' 'wait-on http://localhost:3000 && node_modules/.bin/protractor protractor_test/configs/protractor-integration.conf.js'"
   },
@@ -32,8 +32,8 @@
     "@types/cucumber": "^4.0.4",
     "@types/enzyme": "^3.1.15",
     "@types/enzyme-adapter-react-16": "^1.0.3",
-    "@types/jest": "^23.3.9",
-    "@types/node": "^10.12.10",
+    "@types/jest": "^23.3.11",
+    "@types/node": "^10.12.18",
     "@types/react-test-renderer": "^16.0.3",
     "chai": "^4.2.0",
     "concurrently": "^4.1.0",
@@ -48,7 +48,13 @@
     "react-test-renderer": "^16.7.0",
     "stubby": "^4.0.0",
     "ts-node": "^7.0.1",
-    "typescript": "^3.1.6",
+    "typescript": "^3.2.2",
     "wait-on": "^3.2.0"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

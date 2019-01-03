@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Aux from 'components/hocs/Aux';
+import Aux from '../../hocs/Aux';
 
 const Footer: React.FunctionComponent = () => (
     <Aux>

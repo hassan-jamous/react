@@ -1,6 +1,6 @@
 import { Action } from 'redux';
 
-export const enum CounterActionTypes {
+export enum CounterActionTypes {
   COUNTER_INCREAS = '@@counter/COUNTER_INCREASE',
   COUNTER_DECREASE = '@@counter/COUNTER_DECREASE',
 }

@@ -24,10 +24,10 @@ const rootReducer = combineReducers({
 
 /* tslint:disable:no-string-literal*/
 const reduxDevTools =
-  window['__REDUX_DEVTOOLS_EXTENSION__'] && window['__REDUX_DEVTOOLS_EXTENSION__']();
+(window as any)['__REDUX_DEVTOOLS_EXTENSION__'] && (window as any)['__REDUX_DEVTOOLS_EXTENSION__']();
 /* eslint-enable */
 
-const store = window['__REDUX_DEVTOOLS_EXTENSION__'] ? createStore(rootReducer,
+const store = (window as any)['__REDUX_DEVTOOLS_EXTENSION__'] ? createStore(rootReducer,
   compose(applyMiddleware(sagaMiddleware, routerMiddleware(history)), reduxDevTools)
 ) : createStore(rootReducer,
   compose(applyMiddleware(sagaMiddleware, routerMiddleware(history))));

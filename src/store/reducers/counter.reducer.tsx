@@ -1,6 +1,6 @@
 import { Reducer } from 'redux'
 import { CounterAction, CounterActionTypes } from '../actions/counter.actions';
-import { CounterState } from 'store/App.state';
+import { CounterState } from '../../store/App.state';
 const initialState: CounterState = {
     counter: 5
 };
