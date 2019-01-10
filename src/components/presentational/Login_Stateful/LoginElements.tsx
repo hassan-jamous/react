@@ -1,4 +1,6 @@
 export const LoginElements = {
   password: "password",
-  userName: "userName"
+  userName: "userName",
+  loginButton: "loginButton",
+  errorMessage: "loginErrorMessage"
 };

@@ -31,7 +31,7 @@ class Login extends React.Component<Props, State> {
                     <label><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name={this.identifiers.password} onChange={this.inputTextChangeHandler} />
                     {this.rednerErrorMessage()}
-                    <button onClick={() => {
+                    <button id={this.identifiers.loginButton} name={this.identifiers.loginButton} onClick={() => {
                         this.props.onClickHandler(this.state.userName, this.state.password);
                     }}>Login</button>
                 </div>
@@ -42,7 +42,7 @@ class Login extends React.Component<Props, State> {
     private rednerErrorMessage() {
         let errorElement = null;
         if (this.props.loginError === true) {
-            errorElement = (<div> Error </div>);
+            errorElement = (<div id={this.identifiers.errorMessage}> Error </div>);
         }
         return errorElement;
     }

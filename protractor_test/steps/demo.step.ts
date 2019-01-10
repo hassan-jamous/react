@@ -11,10 +11,13 @@ Before(() => {
 
 When('User does something', async () => {
     await loginPage.navigateToLoginPage();
-    await loginPage.setUserName("userName");
+    await loginPage.setUserName("asdfasdf");
+    await loginPage.setPassword("asdfasdf");
+    await loginPage.clickLogin();
 });
 
 Then('Something should happen', async () => {
+    expect(await loginPage.getErrorMessage()).to.equals("Error");
     expect(await browser.getTitle()).to.equals("First app");
 });
 

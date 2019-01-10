@@ -14,4 +14,18 @@ export class LoginPage {
     await element(by.id(LoginElements.userName)).clear();
     await element(by.id(LoginElements.userName)).sendKeys(userName);
   }
+
+  public async setPassword(password: string) {
+    await element(by.id(LoginElements.userName)).clear();
+    await element(by.id(LoginElements.userName)).sendKeys(password);
+  }
+
+  public async clickLogin() {
+    await element(by.id(LoginElements.loginButton)).click();
+  }
+
+  async getErrorMessage() {
+    return element(by.id(LoginElements.errorMessage)).getText();
+  }
 }
+
