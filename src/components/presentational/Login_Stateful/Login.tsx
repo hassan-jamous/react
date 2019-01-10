@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Aux from '../../../components/hocs/Aux';
 import { LoginElements } from './LoginElements';
+import { LoginErrors } from './LoginErrors';
 
 interface State {
     userName: string;
@@ -16,6 +17,7 @@ interface Props {
 
 class Login extends React.Component<Props, State> {
     private readonly identifiers = LoginElements;
+    private readonly loginError = LoginErrors;
 
     constructor(props: Props) {
         super(props);
@@ -29,7 +31,7 @@ class Login extends React.Component<Props, State> {
                     <label>Username</label>
                     <input type="text" placeholder="Enter Username" id={this.identifiers.userName}  name={this.identifiers.userName} onChange={this.inputTextChangeHandler} />
                     <label><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name={this.identifiers.password} onChange={this.inputTextChangeHandler} />
+                    <input type="password" placeholder="Enter Password" id={this.identifiers.password} name={this.identifiers.password} onChange={this.inputTextChangeHandler} />
                     {this.rednerErrorMessage()}
                     <button id={this.identifiers.loginButton} name={this.identifiers.loginButton} onClick={() => {
                         this.props.onClickHandler(this.state.userName, this.state.password);
@@ -42,7 +44,7 @@ class Login extends React.Component<Props, State> {
     private rednerErrorMessage() {
         let errorElement = null;
         if (this.props.loginError === true) {
-            errorElement = (<div id={this.identifiers.errorMessage}> Error </div>);
+            errorElement = (<div id={this.identifiers.errorMessage}> {this.loginError.userNameAndPasswordIncorrectError} </div>);
         }
         return errorElement;
     }

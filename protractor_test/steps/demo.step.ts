@@ -1,23 +1,37 @@
 import { Before, When, Then } from 'cucumber';
-import { browser } from 'protractor';
 import { expect } from 'chai';
 import { LoginPage } from '../pages/login.page';
+import { ClickerPage } from '../pages/clicker.page';
+import { TestData } from '../testData/testData';
+import { LoginErrors } from '../NameThisLater/loginerrors';
+
 
 let loginPage: LoginPage;
+let clickerPage: ClickerPage;
 
 Before(() => {
     loginPage = new LoginPage();
-  });
+    clickerPage = new ClickerPage();
+});
 
-When('User does something', async () => {
+When('Username and password are inccorect', async () => {
     await loginPage.navigateToLoginPage();
-    await loginPage.setUserName("asdfasdf");
-    await loginPage.setPassword("asdfasdf");
+    await loginPage.setUserName(TestData.InvalidUser.userName);
+    await loginPage.setPassword(TestData.InvalidUser.passWord);
     await loginPage.clickLogin();
 });
 
-Then('Something should happen', async () => {
-    expect(await loginPage.getErrorMessage()).to.equals("Error");
-    expect(await browser.getTitle()).to.equals("First app");
+Then('should show an error', async () => {
+    expect(await loginPage.getErrorMessage()).to.equals(LoginErrors.userNameAndPasswordIncorrectError);
 });
 
+When('Username and password are correct', async () => {
+    await loginPage.navigateToLoginPage();
+    await loginPage.setUserName(TestData.ValidSASUser.userName);
+    await loginPage.setPassword(TestData.ValidSASUser.passWord);
+    await loginPage.clickLogin();
+});
+
+Then('login should be succesful', async () => {
+    expect(await clickerPage.isPageLoad()).to.equals(true);
+});
