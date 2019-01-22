@@ -9,23 +9,30 @@ import LoginConteainer from '../../../components/containers/Login/LoginConteaine
 import MainLayout from '../../../components/layouts/Main/Main';
 
 interface Props {
-  history: History;
+	history: History;
 }
 
 const Routing: React.FunctionComponent<Props> = (props: Props) => (
-  <ConnectedRouter history={props.history}>
-    <Switch>
-      <Route path="/" exact={true} render={() => {
-        const login = <LoginConteainer />
-        return <MainLayout mainComponent={login} />
-      }} />
-      <Route path="/clicker" render={() => {
-        const mc = <ClickerContainer someProps="asdf" />;
-        const ac = <ClickerStateful />;
-        return <AnotherLayout mainComponent={mc} anotherComponent={ac} />
-      }} />
-    </Switch>
-  </ConnectedRouter>
+	<ConnectedRouter history={props.history}>
+		<Switch>
+			<Route
+				path="/"
+				exact={true}
+				render={() => {
+					const login = <LoginConteainer />;
+					return <MainLayout mainComponent={login} />;
+				}}
+			/>
+			<Route
+				path="/clicker"
+				render={() => {
+					const mc = <ClickerContainer someProps="asdf" />;
+					const ac = <ClickerStateful />;
+					return <AnotherLayout mainComponent={mc} anotherComponent={ac} />;
+				}}
+			/>
+		</Switch>
+	</ConnectedRouter>
 );
 
 export default Routing;
